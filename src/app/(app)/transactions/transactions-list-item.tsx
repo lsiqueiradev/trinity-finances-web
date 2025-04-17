@@ -20,6 +20,9 @@ interface TransactionsListItemProps {
 export function TransactionsListItem({
   transaction,
 }: TransactionsListItemProps) {
+  if (!transaction.type && !transaction.description) {
+    return null
+  }
   if (!transaction.type) {
     return (
       <TableRow className="hover:bg-transparent">
